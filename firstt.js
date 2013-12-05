@@ -2,20 +2,24 @@
  * Created by vladimir on 12/3/13.
  */
 var num = 1878;
-var max = 0;
-var min = 10;
-if (typeof (num) == 'number') {
+var max;
+var min;
+var remains;
+if (typeof(num) == 'number') {
+  max = 0;
+  min = 10;
   if (num < 0) {
-    num = 0 - num;
+    num = Math.abs(num);
   }
   while (num > 0) {
-    if (num % 10 > max) {
-      max = num % 10;
+    remains = num % 10;
+    if (remains > max) {
+      max = remains;
     }
-    if (num % 10 < min) {
-      min = num % 10;
+    if (remains < min) {
+      min = remains;
     }
-    num = (num - num % 10) / 10;
+    num = (num - remains) / 10;
   }
   console.log('Наименьшая цифра числа=', min);
   console.log('Наибольшая цифра числа=', max);
