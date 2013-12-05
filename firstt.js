@@ -1,24 +1,25 @@
 /**
  * Created by vladimir on 12/3/13.
  */
-var a = 1878;
-var b=0;
-var c =0;
-var d =10;
-if (typeof (a) == "number"){
-while (a>0){
-    c=a % 10;
-    if (c>b){
-        b=c;
-    }
-    if (c<d){
-        d=c;
-    }
-    a=(a-a%10)/10;
+var num = 1878;
+var max = 0;
+var min = 10;
+if (typeof (num) == 'number') {
+if (num < 0) {
+    num = 0 - num;
 }
-console.log('Наименьшая цифра числа=',d);
-console.log('Наибольшая цифра числа=',b);
+while (num > 0) {
+    if (num % 10 > max) {
+        max = num % 10;
+    }
+    if (num % 10 < min) {
+        min = num % 10;
+    }
+    num = (num - num % 10) / 10;
 }
-else{
-    console.log('На обработку поступило не число')
+console.log('Наименьшая цифра числа=', min);
+console.log('Наибольшая цифра числа=', max);
+}
+else {
+    console.log('На обработку поступило не число');
 }
